@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fitness Diet Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#2196F3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-[70px]">
+                <a href="#" class="flex items-center">
+                    <span class="text-2xl font-['Pacifico'] text-primary">logo</span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-800 hover:text-primary transition-colors">Home</a>
+                    <a href="#" class="text-gray-800 hover:text-primary transition-colors">About</a>
+                    <a href="#" class="text-gray-800 hover:text-primary transition-colors">How It Works</a>
+                    <a href="#" class="text-gray-800 hover:text-primary transition-colors">Plans</a>
+                    <a href="#" class="bg-primary text-white py-2 px-6 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap cursor-pointer" id="login-button">Login / Sign Up</a>
+                </div>
+                
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center">
+                        <i class="ri-menu-line text-gray-800 ri-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="flex flex-col px-4 py-4 space-y-4">
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors py-2">Home</a>
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors py-2">About</a>
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors py-2">How It Works</a>
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors py-2">Plans</a>
+                <a href="#" class="bg-primary text-white py-2 px-4 !rounded-button hover:bg-opacity-90 transition-all text-center whitespace-nowrap cursor-pointer" id="mobile-login-button">Login / Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="w-full relative h-screen flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20high-quality%20fitness%20background%20image%20showing%20a%20diverse%20group%20of%20fit%20people%20working%20out%20in%20a%20modern%20gym%20with%20natural%20lighting.%20The%20left%20side%20of%20the%20image%20has%20a%20smooth%20gradient%20transition%20to%20a%20clean%20white%20background%2C%20allowing%20text%20to%20be%20clearly%20visible%20and%20readable.%20The%20image%20should%20have%20a%20professional%2C%20motivational%20atmosphere%20with%20soft%20lighting%20and%20modern%20fitness%20equipment%20visible&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Fuel Your Fitness with AI-Powered Precision</h1>
+                <p class="text-xl md:text-2xl text-white mb-8 opacity-90">Get personalized workout and diet plans tailored to your goals and body type.</p>
+                <a href="#" class="inline-block bg-primary text-white py-3 px-8 !rounded-button text-lg font-medium hover:bg-opacity-90 transition-all shadow-lg whitespace-nowrap cursor-pointer" id="hero-cta-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our AI-powered platform makes getting a personalized fitness and diet plan simple and effective.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all text-center">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6">
+                        <i class="ri-target-line text-primary ri-2x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Input Your Goals</h3>
+                    <p class="text-gray-600">Tell us about your fitness goals, current stats, dietary preferences, and any limitations you might have.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all text-center">
+                    <div class="w-20 h-20 flex items-center justify-center bg-secondary bg-opacity-10 rounded-full mx-auto mb-6">
+                        <i class="ri-brain-line text-secondary ri-2x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Let AI Analyze Your Needs</h3>
+                    <p class="text-gray-600">Our advanced AI analyzes thousands of data points to create a plan specifically optimized for your body and goals.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all text-center">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6">
+                        <i class="ri-rocket-line text-primary ri-2x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Follow Your Custom Plan</h3>
+                    <p class="text-gray-600">Get daily workout routines, meal plans, and progress tracking all in one place. Adjust as you go for optimal results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Powerful Features</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our platform combines cutting-edge AI with nutrition science and exercise physiology.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <div class="mb-8">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
+                                <i class="ri-restaurant-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Personalized Meal Plans</h3>
+                                <p class="text-gray-600">Get daily meal recommendations based on your caloric needs, macronutrient targets, and food preferences.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-secondary bg-opacity-10 rounded-full mr-4 shrink-0">
+                                <i class="ri-heart-pulse-line text-secondary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Custom Workout Routines</h3>
+                                <p class="text-gray-600">Exercise programs tailored to your fitness level, available equipment, and time constraints.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 shrink-0">
+                                <i class="ri-line-chart-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Progress Tracking</h3>
+                                <p class="text-gray-600">Monitor your improvements with detailed analytics and adjust your plan as you progress.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://readdy.ai/api/search-image?query=A%20sleek%20mobile%20app%20interface%20showing%20a%20personalized%20fitness%20and%20diet%20plan%20with%20meal%20suggestions%2C%20workout%20routines%2C%20and%20progress%20charts.%20The%20interface%20should%20look%20modern%20and%20clean%20with%20a%20white%20background%20and%20green%20accent%20colors.%20The%20screen%20should%20display%20nutritional%20information%2C%20exercise%20recommendations%2C%20and%20progress%20tracking%20features%20in%20a%20visually%20appealing%20layout&width=600&height=800&seq=2&orientation=portrait" alt="App Interface" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">See how our AI-powered fitness and diet plans have transformed lives.</p>
+            </div>
+            
+            <div class="relative">
+                <div id="testimonial-container" class="testimonial-slider flex overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 pb-8">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide min-w-[300px] md:min-w-[400px] w-full md:w-1/3 flex-shrink-0 px-4">
+                        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                    <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20fit%20woman%20in%20her%2030s%20with%20shoulder-length%20brown%20hair%2C%20smiling%20confidently%20at%20the%20camera.%20She%20has%20a%20healthy%2C%20athletic%20appearance%20with%20a%20natural%20makeup%20look.%20The%20background%20is%20neutral%20and%20the%20lighting%20is%20soft%20and%20flattering.%20The%20image%20should%20look%20like%20a%20genuine%20profile%20picture&width=200&height=200&seq=3&orientation=squarish" alt="Sarah Johnson" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900">Sarah Johnson</h4>
+                                    <p class="text-gray-600">Lost 28 lbs in 3 months</p>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 mb-4">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <p class="text-gray-700 italic">"The personalized meal plans were a game-changer for me. I've tried so many diets before, but this is the first time I've found something that works with my busy schedule and food preferences. The AI adjustments kept me on track even when I hit plateaus."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide min-w-[300px] md:min-w-[400px] w-full md:w-1/3 flex-shrink-0 px-4">
+                        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                    <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20fit%20man%20in%20his%2040s%20with%20short%20dark%20hair%20and%20a%20well-groomed%20beard%2C%20smiling%20confidently%20at%20the%20camera.%20He%20has%20an%20athletic%20build%20and%20is%20wearing%20a%20casual%20athletic%20shirt.%20The%20background%20is%20neutral%20and%20the%20lighting%20is%20soft%20and%20flattering.%20The%20image%20should%20look%20like%20a%20genuine%20profile%20picture&width=200&height=200&seq=4&orientation=squarish" alt="Michael Rodriguez" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900">Michael Rodriguez</h4>
+                                    <p class="text-gray-600">Gained 15 lbs of muscle</p>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 mb-4">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <p class="text-gray-700 italic">"As someone who's been lifting for years, I was skeptical about an AI program. But the workout routines were surprisingly well-designed and the nutrition plan helped me break through my bulking plateau. The progress tracking keeps me motivated to push harder."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide min-w-[300px] md:min-w-[400px] w-full md:w-1/3 flex-shrink-0 px-4">
+                        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                    <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20fit%20woman%20in%20her%2050s%20with%20short%20blonde%20hair%20styled%20professionally%2C%20smiling%20warmly%20at%20the%20camera.%20She%20has%20a%20healthy%2C%20vibrant%20appearance%20and%20is%20wearing%20a%20casual%20athletic%20top.%20The%20background%20is%20neutral%20and%20the%20lighting%20is%20soft%20and%20flattering.%20The%20image%20should%20look%20like%20a%20genuine%20profile%20picture&width=200&height=200&seq=5&orientation=squarish" alt="Jennifer Lee" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900">Jennifer Lee</h4>
+                                    <p class="text-gray-600">Improved energy & health</p>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 mb-4">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <p class="text-gray-700 italic">"At 52, I wasn't looking to get shredded - I just wanted more energy and to feel better. This program understood that and created a sustainable plan that worked for my lifestyle. My doctor was amazed at my improved bloodwork after just 2 months!"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="flex justify-center mt-6">
+                    <button class="w-3 h-3 rounded-full bg-primary mx-1 dot active" data-index="0"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300 mx-1 dot" data-index="1"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300 mx-1 dot" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Find the perfect plan to support your fitness journey.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Basic</h3>
+                    <div class="flex items-end mb-6">
+                        <span class="text-4xl font-bold text-gray-900">$9</span>
+                        <span class="text-gray-600 ml-1">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Basic AI meal suggestions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Weekly workout plans</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Basic progress tracking</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="ri-close-line mr-2"></i>
+                            <span>Personalized adjustments</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="ri-close-line mr-2"></i>
+                            <span>Coach consultation</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 px-4 bg-gray-100 text-gray-800 text-center !rounded-button font-medium hover:bg-gray-200 transition-all whitespace-nowrap cursor-pointer plan-button">Get Started</a>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="bg-white p-8 rounded-lg shadow-lg border-2 border-primary relative transform scale-105 md:scale-110 z-10">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-sm py-1 px-4 rounded-bl-lg rounded-tr-lg font-medium">Most Popular</div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Pro</h3>
+                    <div class="flex items-end mb-6">
+                        <span class="text-4xl font-bold text-gray-900">$19</span>
+                        <span class="text-gray-600 ml-1">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Advanced AI meal planning</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Daily workout routines</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Detailed progress analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Bi-weekly plan adjustments</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="ri-close-line mr-2"></i>
+                            <span>Coach consultation</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 px-4 bg-primary text-white text-center !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cursor-pointer plan-button">Get Started</a>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Premium</h3>
+                    <div class="flex items-end mb-6">
+                        <span class="text-4xl font-bold text-gray-900">$39</span>
+                        <span class="text-gray-600 ml-1">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Complete AI nutrition system</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Personalized workout library</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Advanced health metrics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Weekly plan adjustments</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-check-line text-primary mr-2"></i>
+                            <span class="text-gray-700">Monthly coach consultation</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 px-4 bg-secondary text-white text-center !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cursor-pointer plan-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to transform your fitness journey?</h2>
+                <p class="text-xl text-gray-600 mb-8">Join thousands of people who have achieved their fitness goals with our AI-powered platform.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="bg-primary text-white py-3 px-8 !rounded-button text-lg font-medium hover:bg-opacity-90 transition-all shadow-md whitespace-nowrap cursor-pointer" id="cta-trial-button">Start Free Trial</a>
+                    <a href="#" class="bg-white text-gray-800 border border-gray-300 py-3 px-8 !rounded-button text-lg font-medium hover:bg-gray-50 transition-all shadow-sm whitespace-nowrap cursor-pointer">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="flex items-center mb-6">
+                        <span class="text-2xl font-['Pacifico'] text-white">logo</span>
+                    </a>
+                    <p class="text-gray-400 mb-6">AI-powered fitness and nutrition planning tailored to your unique body and goals.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-twitter-x-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Stay Updated</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for tips and updates.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg w-full border-none focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-opacity-90 transition-all whitespace-nowrap cursor-pointer">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-gray-500 text-center">© 2025 AI Fitness Diet Planner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-container bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
+            <div class="p-6">
+                <!-- Tabs -->
+                <div class="flex border-b border-gray-200 mb-6">
+                    <button id="login-tab" class="py-2 px-4 text-primary border-b-2 border-primary font-medium">Login</button>
+                    <button id="signup-tab" class="py-2 px-4 text-gray-500 font-medium">Sign Up</button>
+                    <button id="close-modal" class="ml-auto">
+                        <i class="ri-close-line text-gray-500 hover:text-gray-700 ri-lg"></i>
+                    </button>
+                </div>
+                
+                <!-- Login Form -->
+                <div id="login-form">
+                    <form>
+                        <div class="mb-4">
+                            <label for="login-email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="login-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-6">
+                            <label for="login-password" class="block text-gray-700 font-medium mb-2">Password</label>
+                            <input type="password" id="login-password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your password">
+                            <div class="flex justify-end mt-2">
+                                <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-2 px-4 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cursor-pointer">Login</button>
+                    </form>
+                    
+                    <div class="mt-6">
+                        <div class="relative flex items-center">
+                            <div class="flex-grow border-t border-gray-300"></div>
+                            <span class="flex-shrink mx-4 text-gray-600">Or login with</span>
+                            <div class="flex-grow border-t border-gray-300"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <button class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all cursor-pointer">
+                                <i class="ri-google-fill text-red-500 mr-2"></i>
+                                <span>Google</span>
+                            </button>
+                            <button class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all cursor-pointer">
+                                <i class="ri-facebook-fill text-blue-600 mr-2"></i>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Signup Form (hidden by default) -->
+                <div id="signup-form" class="hidden">
+                    <form>
+                        <div class="mb-4">
+                            <label for="signup-name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="signup-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your full name">
+                        </div>
+                        <div class="mb-4">
+                            <label for="signup-email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="signup-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-4">
+                            <label for="signup-password" class="block text-gray-700 font-medium mb-2">Password</label>
+                            <input type="password" id="signup-password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Create a password">
+                        </div>
+                        <div class="mb-6">
+                            <label for="signup-confirm-password" class="block text-gray-700 font-medium mb-2">Confirm Password</label>
+                            <input type="password" id="signup-confirm-password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Confirm your password">
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-2 px-4 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cursor-pointer">Sign Up</button>
+                    </form>
+                    
+                    <div class="mt-6">
+                        <div class="relative flex items-center">
+                            <div class="flex-grow border-t border-gray-300"></div>
+                            <span class="flex-shrink mx-4 text-gray-600">Or sign up with</span>
+                            <div class="flex-grow border-t border-gray-300"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <button class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all cursor-pointer">
+                                <i class="ri-google-fill text-red-500 mr-2"></i>
+                                <span>Google</span>
+                            </button>
+                            <button class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all cursor-pointer">
+                                <i class="ri-facebook-fill text-blue-600 mr-2"></i>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icon
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                } else {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                }
+            });
+        });
+    </script>
+
+    <script id="testimonial-slider-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('testimonial-container');
+            const dots = document.querySelectorAll('.dot');
+            const slideWidth = container.querySelector('.testimonial-slide').offsetWidth;
+            let currentIndex = 0;
+            
+            // Set up dots click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+            });
+            
+            function updateSlider() {
+                // Update scroll position
+                container.scrollTo({
+                    left: currentIndex * slideWidth,
+                    behavior: 'smooth'
+                });
+                
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('bg-primary');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.remove('bg-primary');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+            
+            // Auto slide
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % dots.length;
+                updateSlider();
+            }, 5000);
+            
+            // Handle scroll events to update dots
+            container.addEventListener('scroll', () => {
+                const scrollPosition = container.scrollLeft;
+                const newIndex = Math.round(scrollPosition / slideWidth);
+                
+                if (newIndex !== currentIndex) {
+                    currentIndex = newIndex;
+                    updateDots();
+                }
+            });
+            
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('bg-primary');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.remove('bg-primary');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script id="auth-modal-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const authModal = document.getElementById('auth-modal');
+            const loginButton = document.getElementById('login-button');
+            const mobileLoginButton = document.getElementById('mobile-login-button');
+            const closeModalButton = document.getElementById('close-modal');
+            const loginTab = document.getElementById('login-tab');
+            const signupTab = document.getElementById('signup-tab');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const heroCTAButton = document.getElementById('hero-cta-button');
+            const ctaTrialButton = document.getElementById('cta-trial-button');
+            const planButtons = document.querySelectorAll('.plan-button');
+            
+            // Open modal function
+            function openAuthModal() {
+                authModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            }
+            
+            // Close modal function
+            function closeAuthModal() {
+                authModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+            
+            // Switch between login and signup tabs
+            function showLoginForm() {
+                loginTab.classList.add('text-primary', 'border-primary');
+                loginTab.classList.remove('text-gray-500');
+                signupTab.classList.add('text-gray-500');
+                signupTab.classList.remove('text-primary', 'border-primary');
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+            }
+            
+            function showSignupForm() {
+                signupTab.classList.add('text-primary', 'border-primary');
+                signupTab.classList.remove('text-gray-500');
+                loginTab.classList.add('text-gray-500');
+                loginTab.classList.remove('text-primary', 'border-primary');
+                signupForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            }
+            
+            // Event listeners
+            loginButton.addEventListener('click', openAuthModal);
+            mobileLoginButton.addEventListener('click', openAuthModal);
+            closeModalButton.addEventListener('click', closeAuthModal);
+            loginTab.addEventListener('click', showLoginForm);
+            signupTab.addEventListener('click', showSignupForm);
+            heroCTAButton.addEventListener('click', function() {
+                openAuthModal();
+                showSignupForm();
+            });
+            ctaTrialButton.addEventListener('click', function() {
+                openAuthModal();
+                showSignupForm();
+            });
+            
+            // Add event listeners to all plan buttons
+            planButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    openAuthModal();
+                    showSignupForm();
+                });
+            });
+            
+            // Close modal when clicking outside
+            authModal.addEventListener('click', function(event) {
+                if (event.target === authModal) {
+                    closeAuthModal();
+                }
+            });
+            
+            // Prevent form submission (for demo purposes)
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
