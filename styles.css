@@ -1,0 +1,297 @@
+:root {
+    --primary-color: #4CAF50;
+    --primary-dark: #388E3C;
+    --primary-light: #C8E6C9;
+    --secondary-color: #2196F3;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --gray-color: #777;
+    --white: #fff;
+    --black: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--white);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.85) 0%, rgba(33, 150, 243, 0.85) 100%),
+                url('https://readdy.ai/api/search-image?query=A%20high-quality%20fitness%20background%20image%20showing%20a%20diverse%20group%20of%20fit%20people%20working%20out%20in%20a%20modern%20gym%20with%20natural%20lighting.%20The%20left%20side%20of%20the%20image%20has%20a%20smooth%20gradient%20transition%20to%20a%20clean%20white%20background%2C%20allowing%20text%20to%20be%20clearly%20visible%20and%20readable.%20The%20image%20should%20look%20like%20a%20genuine%20profile%20picture&width=1920&height=1080&seq=1&orientation=landscape');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 70px; /* Adjust for fixed nav */
+    color: white; /* Ensure text on the hero section is readable */
+}
+
+/* How It Works Section */
+#how-it-works {
+    background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+                url('image_675cba.png'); /* YOUR UPLOADED IMAGE */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+/* Features Section */
+#features {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('image_675a0e.png'); /* YOUR UPLOADED IMAGE */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    color: var(--white); /* Ensure text is readable on the darker background */
+}
+
+#features h2,
+#features p,
+#features h3,
+#features .text-gray-900 {
+    color: var(--white); /* Ensure text within features is white */
+}
+
+/* Diet Plan Generator (Get Started) Section */
+#get-started {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                url('image_6759ee.png'); /* YOUR UPLOADED IMAGE */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* AI Processing Section */
+#ai-processing {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%); /* Keeps original gradient, made slightly darker */
+    /* No additional image for AI processing for visual clarity */
+}
+
+/* Sample Plan (Results) Section */
+#results {
+    background: linear-gradient(rgba(244, 244, 244, 0.98), rgba(244, 244, 244, 0.98)),
+                url('https://images.unsplash.com/photo-1540498701912-1f4a47d2f444?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Testimonials Section */
+#testimonials {
+    background: linear-gradient(rgba(244, 244, 244, 0.95), rgba(244, 244, 244, 0.95)),
+                url('https://images.unsplash.com/photo-1517487881526-cb7076b1ad43?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Pricing Section */
+#pricing {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('image_6758fa.png'); /* YOUR UPLOADED IMAGE */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white); /* Ensure text is readable on the darker background */
+}
+
+#pricing h2,
+#pricing p,
+#pricing h3,
+#pricing .text-gray-900 {
+    color: var(--white); /* Ensure text within pricing is white */
+}
+#pricing .pricing-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Make pricing cards slightly transparent white */
+    color: var(--dark-color);
+}
+#pricing .pricing-card h3,
+#pricing .pricing-card .text-gray-900,
+#pricing .pricing-card .text-gray-600,
+#pricing .pricing-card .text-gray-700,
+#pricing .pricing-card .ri-check-line,
+#pricing .pricing-card .ri-close-line {
+    color: var(--dark-color); /* Ensure text and icons in pricing cards are dark */
+}
+#pricing .plan-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+#pricing .plan-button:hover {
+    background-color: var(--primary-dark);
+}
+#pricing .popular {
+    border-color: var(--primary-light);
+}
+#pricing .popular .plan-button {
+    background-color: var(--secondary-color);
+}
+#pricing .popular .plan-button:hover {
+    background-color: #1976D2;
+}
+
+/* CTA Section */
+.py-20.bg-gray-50:last-of-type { /* Targeting the CTA section specifically */
+    background: linear-gradient(rgba(244, 244, 244, 0.95), rgba(244, 244, 244, 0.95)),
+                url('https://images.unsplash.com/photo-1550974808-11f8457d389a?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* General Section Styles (kept from previous version) */
+.step-card {
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card {
+    background: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-slider {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    scroll-snap-type: x mandatory;
+}
+
+.testimonial-slide {
+    scroll-snap-align: start; /* Align to the start of each slide */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.diet-form-container {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.pricing-card {
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--primary-color);
+    transform: scale(1.05);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: white;
+    animation: progress 3s ease-in-out forwards;
+}
+
+@keyframes progress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.meal-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.meal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.auth-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.auth-container {
+    transform: translateY(-20px);
+    transition: transform 0.3s;
+}
+
+.auth-modal.active .auth-container {
+    transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 100px; /* More space for hero content below nav */
+    }
+    .hero-section .lg:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .pricing-card.popular {
+        transform: scale(1.05);
+    }
+}
